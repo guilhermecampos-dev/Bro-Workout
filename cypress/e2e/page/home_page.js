@@ -1,5 +1,4 @@
-import HomeElements from "../elements/home_elements";
-const homeElements = new HomeElements();
+import { HomeElements } from "../../e2e/elements/home_elements";
 
 class HomePage{
 
@@ -7,8 +6,10 @@ class HomePage{
         cy.visit("/")
     }
 
-    accessExercisesPage(){
-        cy.get(homeElements.exercisesLink()).first().click()
+    accessExercisesPage() {
+        cy.get(HomeElements.btnExercises).first().click();
     }
+
+
 
 }export default HomePage;

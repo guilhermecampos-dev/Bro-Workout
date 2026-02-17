@@ -1,5 +1,4 @@
-class HomeElements{
-
-exercisesLink = () => { return 'a[href="/exercises"]'};
-
-}export default HomeElements;
+export const HomeElements = {
+   
+    btnExercises: 'a[href="/exercises"]'
+}

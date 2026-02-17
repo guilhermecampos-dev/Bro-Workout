@@ -8,7 +8,7 @@ Given('the user is on the home screen', () => {
     homePage.accessBroworkoutPage();
 });
 
-When('they click on the Exercises page', () => {
+When('I click the exercises link in the header', () => {
     homePage.accessExercisesPage();
 });
 
