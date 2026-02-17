@@ -8,7 +8,7 @@ class HomePage{
     }
 
     accessExercisesPage(){
-        cy.get(homeElements.exercisesLink()).first.click()
+        cy.get(homeElements.exercisesLink()).first().click()
     }
 
 }export default HomePage;
