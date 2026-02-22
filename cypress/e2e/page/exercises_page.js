@@ -19,4 +19,6 @@ class ExercisesPage{
     }*/
 
     
-}export default ExercisesPage;
+}
+
+export default ExercisesPage;

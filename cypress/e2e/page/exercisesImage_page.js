@@ -1,3 +1,6 @@
+import { ExercisesImageElements } from "../elements/exercisesImage_elements";
+
+
 class ExercisesImagePage {
   validateImageButtonExists() {
     cy.get('a[href$=".jpg"]').should('have.length.at.least', 1)

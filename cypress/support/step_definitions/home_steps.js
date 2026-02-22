@@ -4,10 +4,6 @@ import HomePage from "../../e2e/page/home_page";
 const homePage = new HomePage();
 
 
-Given('the user is on the home screen', () => {
-    homePage.accessBroworkoutPage();
-});
-
 When('I click the exercises link in the header', () => {
     homePage.accessExercisesPage();
 });
