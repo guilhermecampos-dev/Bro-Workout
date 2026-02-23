@@ -33,3 +33,7 @@ When('clicks on the Create button', () => {
 Then('the new exercise {string} should be displayed in the exercises list', (name) => {
   registerExercisePage.validateExercisesCreated(name);
 });
+
+Then('an error message should be displayed', () => {
+  registerExercisePage.validateErrorMessage('Falha ao criar exercício')
+})

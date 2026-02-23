@@ -26,6 +26,10 @@ class RegisterExercisePage{
         cy.contains(name).should('be.visible');
     }
 
+    validateErrorMessage(message) {
+        cy.contains(message).should('be.visible')
+    }
+
 }
 
 export default RegisterExercisePage;
