@@ -6,8 +6,7 @@ import ExercisesPage from "../../e2e/page/exercises_page";
 const exercisesPage = new ExercisesPage();
 const homePage = new HomePage();
 
-Given('the user is on the exercise list page', () => {
-    homePage.accessBroworkoutPage();
+When('the user is on the exercise list page', () => {
     homePage.accessExercisesPage();
 });
 

@@ -1,8 +1,8 @@
 import { Given, When, Then } from "@badeball/cypress-cucumber-preprocessor";
 import HomePage from "../../e2e/page/home_page";
 
-const homePage = new HomePage();
 
+const homePage = new HomePage();
 
 When('I click the exercises link in the header', () => {
     homePage.accessExercisesPage();
