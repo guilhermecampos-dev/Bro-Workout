@@ -1,4 +1,6 @@
-import { ExercisesImageElements as ei } from "../elements/exercisesImage_elements";
+import ExercisesImageElements from "../elements/exercisesImage_elements";
+
+const ei = new ExercisesImageElements()
 
 class ExercisesImagePage {
 
@@ -26,4 +28,6 @@ validateDefaultIconIsNotDisplayed(name){
 }
 
 
-}export default ExercisesImagePage
+}
+    
+export default ExercisesImagePage

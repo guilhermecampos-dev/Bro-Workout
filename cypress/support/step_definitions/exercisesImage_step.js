@@ -24,7 +24,7 @@ Then('the image must be displayed in the record', () => {
 
   exercisesImagePage.validateExerciseIsListed(name)
   exercisesImagePage.validateAvatarIsDisplayed(name)
-  exercisesImagePage.validateAvatarImageIsDisplayed(name)
+  exercisesImagePage.validateAvatarImageDisplayed(name)
   exercisesImagePage.validateDefaultIconIsNotDisplayed(name)
 })
 

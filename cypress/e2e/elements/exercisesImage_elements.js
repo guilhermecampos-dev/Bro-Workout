@@ -1,4 +1,4 @@
-export class ExercisesImageElements {
+class ExercisesImageElements {
 
   exerciseItem(name) {
     return cy.contains('span', name).closest('li.MuiListItem-root')
@@ -34,4 +34,5 @@ export class ExercisesImageElements {
       .contains('a', 'ASSISTIR VÍDEO')
   }
 
-} 
+}
+  export default ExercisesImageElements
