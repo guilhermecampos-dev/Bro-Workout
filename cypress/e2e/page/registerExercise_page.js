@@ -1,28 +1,28 @@
 import { RegisterExercise } from "../elements/registerExercise_elements";
 
-class RegisterExercisePage{
+class RegisterExercisePage {
 
     clickAddExercise() {
         RegisterExercise.addExercisesBtn().click();
     }
 
-    fillExerciseName(name){
+    fillExerciseName(name) {
         RegisterExercise.inputExerciseName().type(name);
     }
 
-    fillExercisesVideoUrl(urlVideo){
+    fillExercisesVideoUrl(urlVideo) {
         RegisterExercise.inputUrlVideo().type(urlVideo);
     }
 
-    fillExercisesImageUrl(urlImage){
+    fillExercisesImageUrl(urlImage) {
         RegisterExercise.inputUrlImage().type(urlImage);
     }
 
-    clickCreateExercise(){
-       RegisterExercise.createExercisesBtn().click();
+    clickCreateExercise() {
+        RegisterExercise.createExercisesBtn().click();
     }
 
-    validateExercisesCreated(name){
+    validateExercisesCreated(name) {
         cy.contains(name).should('be.visible');
     }
 

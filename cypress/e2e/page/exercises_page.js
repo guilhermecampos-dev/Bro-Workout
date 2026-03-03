@@ -1,24 +1,10 @@
 import { ExercisesElements } from "../elements/exercises_elements";
 
-class ExercisesPage{
+class ExercisesPage {
 
-    ValidateWatchVideoButtons(){
+    validateWatchVideoButtons() {
         cy.get(ExercisesElements.btnWatchVideo)
-        .should('be.visible').and('have.length.at.least', 1);
+            .should('be.visible').and('have.length.at.least', 1);
     }
-
-    /*clickWatchVideo() {
-        
-        cy.get(ExercisesElements.btnWatchVideo)
-            .first()
-            .invoke('removeAttr', 'target')
-            .click();
-            
-        
-        cy.url().should('include', 'youtube.com');
-    }*/
-
-    
 }
-
 export default ExercisesPage;

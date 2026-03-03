@@ -33,6 +33,5 @@ class ExercisesImageElements {
     return this.exerciseItem(name)
       .contains('a', 'ASSISTIR VÍDEO')
   }
-
 }
-  export default ExercisesImageElements
+export default ExercisesImageElements

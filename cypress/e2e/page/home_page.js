@@ -1,8 +1,8 @@
 import { HomeElements } from "../../e2e/elements/home_elements";
 
-class HomePage{
+class HomePage {
 
-    accessBroworkoutPage(){
+    accessBroworkoutPage() {
         cy.visit("/")
     }
 
@@ -12,4 +12,4 @@ class HomePage{
 
 
 
-}export default HomePage;
+} export default HomePage;
