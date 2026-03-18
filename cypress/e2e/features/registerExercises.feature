@@ -1,5 +1,9 @@
 Feature: Create Exercise
 
+  As a system administrator
+  I want to register new exercises with media links
+  So that I can expand the library with visual guides for the users
+
   Scenario: Register new exercise successfully
     Given the user is on the Home Screen
     When the user navigates to the Exercises page
