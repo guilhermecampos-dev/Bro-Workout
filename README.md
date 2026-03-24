@@ -1,15 +1,15 @@
-🧪 Bro Workout – QA Automation Project
+# 🧪 Bro Workout – QA Automation Project 
 
 This repository contains automated end-to-end tests developed for the Bro Workout application.
 
 The goal of this project is to validate core user flows, ensure system reliability, and demonstrate best practices in test automation using modern QA tools.
 
-👉 Application under test:
+## 👉 Application under test:
 https://bro-workout-frontend.vercel.app/
 
-🎯 Project Objective
+# 🎯 Project Objective
 
-This project was created to:
+### This project was created to:
 
 - Validate critical user journeys
 
@@ -21,9 +21,9 @@ This project was created to:
 
 - Demonstrate real-world QA automation skills
 
-🧰 Tech Stack
+# 🧰 Tech Stack
 
-Test Automation Framework
+## Test Automation Framework
 
 - Cypress
 
@@ -31,19 +31,19 @@ Test Automation Framework
 
 - JavaScript
 
-Architecture Pattern
+## Architecture Pattern
 
 - Page Object Model (POM)
 
-CI/CD
+## CI/CD
 
 - GitHub Actions
 
-📋 Test Coverage
+# 📋 Test Coverage
 
-The automated scenarios cover:
+## The automated scenarios cover:
 
-🔐 Authentication
+### 🔐 Authentication
 
 - Valid login
 
@@ -51,7 +51,7 @@ The automated scenarios cover:
 
 - Logout
 
-🏋️ Exercise Management
+### 🏋️ Exercise Management
 
 - Add new exercise
 
@@ -63,38 +63,39 @@ The automated scenarios cover:
 
 - Validate image rendering when image URL exists
 
-🏗️ Project Structure
-cypress/
+### 🏗️ Project Structure
+```cypress/
  ├── e2e/
- │    ├── features/
- │    ├── step_definitions/
- │    ├── pages/
+ │    ├── features/           # Gherkin .feature files
+ │    ├── step_definitions/   # Implementation of BDD steps
+ │    ├── pages/              # Page Object classes (POM)
  │
  ├── support/
- │    └── commands.js
+ │    └── commands.js         # Custom Cypress commands
  │
-cypress.config.js
-package.json
-README.md
+cypress.config.js             # Framework configuration
+package.json                  # Dependencies and scripts
+README.md                     # Project documentation
+```
 
-🚀 How to Run the Tests
+# 🚀 How to Run the Tests
 
-1️⃣ Clone the repository
+## 1️⃣ Clone the repository
 git clone https://github.com/guilhermecampos-dev/Bro-Workout.git
 cd Bro-Workout
 
-2️⃣ Install dependencies
+## 2️⃣ Install dependencies
 npm install
 
-3️⃣ Open Cypress UI
+## 3️⃣ Open Cypress UI
 npx cypress open
 
-4️⃣ Run in headless mode
+## 4️⃣ Run in headless mode
 npx cypress run
 
-🧠 QA Strategy
+# 🧠 QA Strategy
 
-This project follows:
+## This project follows:
 
 - BDD structure (Given / When / Then)
 
@@ -108,7 +109,7 @@ This project follows:
 
 The objective is not only to test, but to build maintainable automation.
 
-📈 Future Improvements
+# 📈 Future Improvements
 
 - API test integration
 
@@ -116,17 +117,15 @@ The objective is not only to test, but to build maintainable automation.
 
 - Visual regression testing
 
-- CI pipeline integration
-
 - Test reporting dashboard
 
-👨‍💻 Author
+# 👨‍💻 Author
 
-Guilherme Campos
-QA Automation Engineer
+## Guilherme Campos
+### QA Automation Engineer 
 
-GitHub:
+## GitHub:
 https://github.com/guilhermecampos-dev
 
-📜 License
+## 📜 License
 MIT © 2026 Guilherme Campos
