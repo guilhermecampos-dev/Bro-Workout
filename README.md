@@ -113,12 +113,6 @@ The objective is not only to test, but to build maintainable automation.
 
 - API test integration
 
-- Test data factory
-
-- Visual regression testing
-
-- Test reporting dashboard
-
 # 👨‍💻 Author
 
 ## Guilherme Campos
