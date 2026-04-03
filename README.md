@@ -109,10 +109,6 @@ npx cypress run
 
 The objective is not only to test, but to build maintainable automation.
 
-# 📈 Future Improvements
-
-- API test integration
-
 # 👨‍💻 Author
 
 ## Guilherme Campos
