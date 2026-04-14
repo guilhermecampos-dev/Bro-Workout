@@ -6,7 +6,7 @@ const {createEsbuildPlugin} = require("@badeball/cypress-cucumber-preprocessor/e
 module.exports = defineConfig({
   e2e: {
     baseUrl: "https://bro-workout-frontend.vercel.app",
-    specPattern:"cypress/e2e/features/**/*.feature",
+    specPattern:"cypress/e2e/**/*.{cy.js,feature}",
     async setupNodeEvents(on, config){
       await addCucumberPreprocessorPlugin(on, config);
       on(
