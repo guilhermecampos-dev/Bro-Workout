@@ -1,3 +1,3 @@
 export const ExercisesElements = {
-    btnWatchVideo: '[rel="noopener noreferrer"]'
+    btnWatchVideo: 'a[href*="youtube.com"], a[href*="youtu.be"]'
 }

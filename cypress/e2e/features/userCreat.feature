@@ -1,0 +1,14 @@
+Feature: Add workout to user
+  This feature allows users to create and assign workouts to a specific user card.
+
+  Scenario: Successfully add a workout to a user
+    Given the user is on the Home Screen
+    When the user clicks the "Users" button
+    And clicks the "Add Workout" button
+    And fills in the "Workout Name" field with "Treino Inferior"
+    And selects an exercise "Cadeira Adutora"
+    And fills in the number of repetitions "15"
+    And fills in the number of sets "4"
+    And fills in the weight "20"
+    And clicks the "Add Workouts" button
+    Then the corresponding workout is created on the user's card

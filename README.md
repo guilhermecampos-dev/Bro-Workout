@@ -25,7 +25,7 @@ https://bro-workout-frontend.vercel.app/
 
 ## Test Automation Framework
 
-- Cypress
+- Cypress (UI + API Testing)
 
 - Cucumber (BDD)
 
@@ -63,19 +63,35 @@ https://bro-workout-frontend.vercel.app/
 
 - Validate image rendering when image URL exists
 
+## 🔌 API Testing
+
+The project also includes automated API tests using Cypress.
+
+### Covered endpoints:
+
+- GET /users → validate users list and response structure
+- POST /users → create new user and validate response data
+
+### Validations performed:
+
+- Status code validation (200, 201)
+- Response structure validation
+
 ### 🏗️ Project Structure
 ```cypress/
  ├── e2e/
+ │    ├── api/                # API tests
+ │    │    └── users.cy.js
  │    ├── features/           # Gherkin .feature files
- │    ├── step_definitions/   # Implementation of BDD steps
- │    ├── pages/              # Page Object classes (POM)
+ │    ├── step_definitions/   # BDD steps
+ │    ├── pages/              # Page Objects
  │
  ├── support/
- │    └── commands.js         # Custom Cypress commands
+ │    └── commands.js
  │
-cypress.config.js             # Framework configuration
-package.json                  # Dependencies and scripts
-README.md                     # Project documentation
+cypress.config.js
+package.json
+README.md
 ```
 
 # 🚀 How to Run the Tests
@@ -106,6 +122,8 @@ npx cypress run
 - Clear and readable scenarios
 
 - Stable selectors strategy
+
+- API testing with cy.request()
 
 The objective is not only to test, but to build maintainable automation.
 
