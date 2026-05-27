@@ -1,4 +1,4 @@
-import { userViewElements } from "../elements/userview_elements";
+import { userViewElements } from "../elements/userView_elements";
 
 class UserViewPage {
       accessBroworkoutPage() {
