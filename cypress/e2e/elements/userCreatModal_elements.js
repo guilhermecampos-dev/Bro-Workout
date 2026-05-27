@@ -20,9 +20,7 @@ export const UserCreatModalElements = {
 
     addWorkoutbtn: () => cy.get('[role="dialog"]')
         .should('exist')
-        .within(() => {
-            cy.contains('button', 'Adicionar Treino').click()
-        })
+        .contains('button', 'Adicionar Treino')
 
 
 }

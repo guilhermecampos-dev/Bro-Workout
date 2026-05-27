@@ -27,6 +27,13 @@ class ExercisesImagePage {
             .should('not.exist')
     }
 
+    validateImageLinkDisplayed(name) {
+        ei.viewImageLink(name)
+            .should('exist')
+            .and('be.visible')
+            .and('have.attr', 'target', '_blank')
+    }
+
 
 }
 

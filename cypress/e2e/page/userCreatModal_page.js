@@ -36,7 +36,7 @@ class UserCreatModalPage {
     }
 
     newWorkoutBtnClick() {
-        UserCreatModalElements.addWorkoutbtn().first().click()
+        UserCreatModalElements.addWorkoutbtn().click()
     }
 
 

@@ -1,9 +1,6 @@
 import { Given, When, Then } from "@badeball/cypress-cucumber-preprocessor";
 import ActiveWorkoutPage from "../../e2e/page/activeWorkout_page";
 
-const apiUrl = 'https://broworkout.back.brothertec.com.br'
-const exerciseId = '6882f02ee87e15cb925ed6a4'
-const exerciseName = 'Voador'
 const activeWorkoutPage = new ActiveWorkoutPage()
 
 let user
@@ -11,11 +8,13 @@ let workout
 
 Given('a user with a workout exists through the API', () => {
   const timestamp = Date.now()
+  const apiUrl = Cypress.env('apiUrl')
+  const exerciseId = Cypress.env('activeWorkoutExerciseId')
 
   user = {
-    nome: `${timestamp}`,
-    email: `${timestamp}@email.com`,
-    password: '${timestamp}',
+    nome: `Giga Cypress ${timestamp}`,
+    email: `giga.cypress.${timestamp}@email.com`,
+    password: `${timestamp}`,
   }
 
   workout = {
@@ -76,7 +75,7 @@ When('expands the API-created workout', () => {
 
 Then('the workout details should be displayed correctly', () => {
   activeWorkoutPage.validateWorkoutDetails(
-    exerciseName,
+    Cypress.env('activeWorkoutExerciseName'),
     workout.series[0].repeticoes,
     workout.series[0].execucoes,
     workout.series[0].carga
