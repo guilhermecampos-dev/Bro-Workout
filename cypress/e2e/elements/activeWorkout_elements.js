@@ -7,7 +7,7 @@ export const ActiveWorkoutElements = {
     { timeout: 10000 }
   ),
 
-  userWorkoutsTitle: (userName) => cy.contains('h6', `Treinos de ${userName}`),
+  userWorkoutsTitle: (userName) => cy.contains('h6', `Treino de ${userName}`),
 
   workoutButton: (workoutName) => cy.contains('button', workoutName),
 
