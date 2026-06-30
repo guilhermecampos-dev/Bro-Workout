@@ -1,3 +1,3 @@
 export const userViewElements = {
-    btnUserViews: 'a[href="/users"]'
+    usersLink: () => cy.get('header').contains('a', 'Usuários')
 }

@@ -1,6 +1,8 @@
 export const ActiveWorkoutElements = {
   userSelect: () => cy.get('#user-select', { timeout: 10000 }),
 
+  userListbox: () => cy.get('ul[role="listbox"]', { timeout: 10000 }),
+
   userOption: (userName, userEmail) => cy.contains(
     '[role="option"]',
     `${userName} (${userEmail})`,
@@ -9,13 +11,23 @@ export const ActiveWorkoutElements = {
 
   userWorkoutsTitle: (userName) => cy.contains('h6', `Treinos de ${userName}`),
 
-  workoutButton: (workoutName) => cy.contains('button', workoutName),
+  workoutsContainer: (userName) => ActiveWorkoutElements.userWorkoutsTitle(userName)
+    .parent(),
 
-  exerciseTitle: (exerciseName) => cy.contains('h6', exerciseName),
+  workoutButton: (userName, workoutName) => ActiveWorkoutElements.workoutsContainer(userName)
+    .contains('button', workoutName),
 
-  repetitionsText: (repetitions) => cy.contains(`Repetições: ${repetitions}`),
+  workoutDetails: () => cy.get('[role="region"]').should('be.visible'),
 
-  setsText: (sets) => cy.contains(`Execuções: ${sets}`),
+  exerciseTitle: (workoutName, exerciseName) => ActiveWorkoutElements.workoutDetails(workoutName)
+    .contains('h6', exerciseName),
 
-  weightText: (weight) => cy.contains(`Carga: ${weight} kg`),
+  repetitionsText: (workoutName, repetitions) => ActiveWorkoutElements.workoutDetails(workoutName)
+    .contains(`Repetições: ${repetitions}`),
+
+  setsText: (workoutName, sets) => ActiveWorkoutElements.workoutDetails(workoutName)
+    .contains(`Execuções: ${sets}`),
+
+  weightText: (workoutName, weight) => ActiveWorkoutElements.workoutDetails(workoutName)
+    .contains(`Carga: ${weight} kg`),
 }

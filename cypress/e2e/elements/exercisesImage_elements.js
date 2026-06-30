@@ -1,7 +1,10 @@
+const escapeRegExp = (text) => text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+
 class ExercisesImageElements {
 
   exerciseItem(name) {
-    return cy.contains('span', name).closest('li.MuiListItem-root')
+    return cy.contains('span', new RegExp(`^${escapeRegExp(name)}$`))
+      .closest('li.MuiListItem-root')
   }
 
   avatarContainer(name) {

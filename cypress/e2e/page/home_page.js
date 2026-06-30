@@ -7,7 +7,7 @@ class HomePage {
     }
 
     accessExercisesPage() {
-        cy.get(HomeElements.btnExercises).first().click();
+        HomeElements.exercisesLink().should('be.visible').click();
     }
 
 

@@ -6,7 +6,7 @@ class UserViewPage {
         }
     
         accessUserViewPage() {
-            cy.get(userViewElements.btnUserViews).first().click();
+            userViewElements.usersLink().should('be.visible').click();
         }
 }
 export default UserViewPage

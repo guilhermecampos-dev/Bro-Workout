@@ -23,7 +23,7 @@ class RegisterExercisePage {
     }
 
     validateExercisesCreated(name) {
-        cy.contains(name).should('be.visible');
+        cy.contains('span', name).should('be.visible');
     }
 
     validateErrorMessage(message) {

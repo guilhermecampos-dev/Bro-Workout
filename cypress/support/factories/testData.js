@@ -1,4 +1,4 @@
-export const uniqueSuffix = () => Date.now()
+export const uniqueSuffix = () => `${Date.now()}-${Math.floor(Math.random() * 100000)}`
 
 export const createUniqueUser = (prefix = 'Giga Cypress') => {
   const suffix = uniqueSuffix()

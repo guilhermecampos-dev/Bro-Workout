@@ -38,13 +38,22 @@ Cypress.Commands.add('createExercise', (exercise) => {
 
   cy.visit('/exercises')
 
-  cy.contains('button', 'Adicionar Exercício').click()
+  cy.contains('button', 'Adicionar Exercício').should('be.visible').click()
 
-  cy.contains('label', 'Nome do Exercício').parent().find('input').type(name)
-  cy.contains('label', 'URL do Vídeo').parent().find('input').type(videoUrl)
-  cy.contains('label', 'URL da Imagem').parent().find('input').type(imageUrl)
+  cy.contains('label', 'Nome do Exercício')
+    .closest('.MuiFormControl-root')
+    .find('input')
+    .type(name)
+  cy.contains('label', 'URL do Vídeo')
+    .closest('.MuiFormControl-root')
+    .find('input')
+    .type(videoUrl)
+  cy.contains('label', 'URL da Imagem')
+    .closest('.MuiFormControl-root')
+    .find('input')
+    .type(imageUrl)
 
-  cy.contains('button', 'Criar').click()
+  cy.contains('button', 'Criar').should('be.visible').click()
 
-  cy.contains(name).should('exist')
+  cy.contains('span', name).should('exist')
 })

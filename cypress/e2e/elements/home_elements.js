@@ -1,3 +1,3 @@
 export const HomeElements = {
-    btnExercises: 'a[href="/exercises"]'
+    exercisesLink: () => cy.get('header').contains('a', 'Exercícios')
 }

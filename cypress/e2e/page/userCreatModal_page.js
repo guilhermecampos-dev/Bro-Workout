@@ -2,8 +2,18 @@ import { UserCreatModalElements } from "../elements/userCreatModal_elements";
 
 class UserCreatModalPage {
 
-    workoutBtnClick() {
-        UserCreatModalElements.addUserWorkoutbtn().first().click()
+    workoutBtnClick(userEmail) {
+        if (userEmail) {
+            UserCreatModalElements.addUserWorkoutbtn(userEmail)
+                .should('be.visible')
+                .click()
+            return
+        }
+
+        UserCreatModalElements.addUserWorkoutButtons()
+            .should('have.length.greaterThan', 0)
+            .eq(0)
+            .click()
     }
 
     fillWorkoutName(name) {
@@ -13,13 +23,7 @@ class UserCreatModalPage {
     selectExercise(name) {
         UserCreatModalElements.exerciseSelect().click()
 
-        cy.get('body')
-            .find('ul[role="listbox"]', { timeout: 10000 })
-            .should('exist') 
-            .as('dropdown')
-
-        cy.get('@dropdown')
-            .contains('li', name)
+        cy.contains('li[role="option"]', name, { timeout: 10000 })
             .click({ force: true })
     }
 
@@ -37,6 +41,12 @@ class UserCreatModalPage {
 
     newWorkoutBtnClick() {
         UserCreatModalElements.addWorkoutbtn().click()
+    }
+
+    validateWorkoutCreated(userEmail, workoutName) {
+        UserCreatModalElements.userCardByEmail(userEmail)
+            .contains(workoutName)
+            .should('be.visible')
     }
 
 

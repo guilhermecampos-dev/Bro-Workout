@@ -59,6 +59,7 @@ When('expands the API-created workout', () => {
 
 Then('the workout details should be displayed correctly', () => {
   activeWorkoutPage.validateWorkoutDetails(
+    workout.nome,
     Cypress.env('activeWorkoutExerciseName'),
     workout.series[0].repeticoes,
     workout.series[0].execucoes,
