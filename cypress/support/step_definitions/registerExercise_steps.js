@@ -1,6 +1,7 @@
 import { Given, When, Then } from "@badeball/cypress-cucumber-preprocessor";
 import RegisterExercisePage from "../../e2e/page/registerExercise_page";
 import HomePage from "../../e2e/page/home_page";
+import { createUniqueExercise } from "../factories/testData";
 
 const registerExercisePage = new RegisterExercisePage();
 const homePage = new HomePage();
@@ -20,7 +21,7 @@ When('fills in the Exercise Name field with {string}', (name) => {
 });
 
 When('fills in the Exercise Name field with a unique name', () => {
-  exerciseName = `Supino Teste ${Date.now()}`;
+  exerciseName = createUniqueExercise().name;
   registerExercisePage.fillExerciseName(exerciseName);
 });
 

@@ -1,5 +1,6 @@
 import { Given, When, Then } from "@badeball/cypress-cucumber-preprocessor";
 import ActiveWorkoutPage from "../../e2e/page/activeWorkout_page";
+import { createUniqueUser, createWorkout } from "../factories/testData";
 
 const activeWorkoutPage = new ActiveWorkoutPage()
 
@@ -7,27 +8,10 @@ let user
 let workout
 
 Given('a user with a workout exists through the API', () => {
-  const timestamp = Date.now()
   const apiUrl = Cypress.env('apiUrl')
-  const exerciseId = Cypress.env('activeWorkoutExerciseId')
 
-  user = {
-    nome: `Giga Cypress ${timestamp}`,
-    email: `giga.cypress.${timestamp}@email.com`,
-    password: `${timestamp}`,
-  }
-
-  workout = {
-    nome: 'Superior Monstro',
-    series: [
-      {
-        exercicio: exerciseId,
-        repeticoes: 15,
-        execucoes: 4,
-        carga: 50,
-      },
-    ],
-  }
+  user = createUniqueUser()
+  workout = createWorkout()
 
   cy.request('POST', `${apiUrl}/users`, user).then((createResponse) => {
     expect(createResponse.status).to.eq(201)
@@ -42,10 +26,10 @@ Given('a user with a workout exists through the API', () => {
       const createdWorkout = workoutResponse.body.treinos.find((treino) => treino.nome === workout.nome)
       expect(createdWorkout).to.exist
       expect(createdWorkout.series[0]).to.include({
-        exercicio: exerciseId,
-        repeticoes: 15,
-        execucoes: 4,
-        carga: 50,
+        exercicio: workout.series[0].exercicio,
+        repeticoes: workout.series[0].repeticoes,
+        execucoes: workout.series[0].execucoes,
+        carga: workout.series[0].carga,
       })
     })
   })

@@ -1,6 +1,7 @@
 Feature: Add workout to user
   This feature allows users to create and assign workouts to a specific user card.
 
+  @regression @ui @workout
   Scenario: Successfully add a workout to a user
     Given the user is on the Home Screen
     When the user clicks the "Users" button

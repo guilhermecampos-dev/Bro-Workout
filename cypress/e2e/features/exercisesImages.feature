@@ -4,6 +4,7 @@ Feature: Exercise image link behavior
     I want to access registered exercise images from the list
     So that I can open the visual guide for each movement
 
+    @regression @ui @exercise
     Scenario: The image link must be displayed for a registered exercise
         Given the user is on the Home Screen
         And there is an exercise with a registered image

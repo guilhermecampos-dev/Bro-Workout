@@ -62,9 +62,12 @@ cypress/
  │    ├── features/           # Gherkin feature files
  │    └── page/               # Page Objects
  ├── support/
+ │    ├── factories/          # Test data builders
  │    ├── step_definitions/   # Cucumber step definitions
  │    ├── commands.js
  │    └── e2e.js
+.github/
+ └── workflows/               # GitHub Actions pipelines
 cypress.config.js
 package.json
 README.md
@@ -103,6 +106,47 @@ npm test
 npm run cy:run:bdd
 ```
 
+### 6. Run smoke scenarios
+
+```bash
+npm run cy:run:smoke
+```
+
+### 7. Run regression scenarios
+
+```bash
+npm run cy:run:regression
+```
+
+### 8. Run API specs
+
+```bash
+npm run cy:run:api
+```
+
+## Tags
+
+Feature files use tags to organize execution:
+
+- `@smoke`: fast, high-value scenarios for quick feedback
+- `@regression`: broader coverage scenarios
+- `@ui`: user interface scenarios
+- `@api-setup`: UI scenarios that prepare data through the API
+- `@negative`: negative validation scenarios
+- `@known-bug`: documented known issues that should be excluded from normal runs
+
+The default smoke and regression scripts exclude `@known-bug` scenarios.
+
+## Continuous Integration
+
+GitHub Actions runs:
+
+- Smoke BDD scenarios on pushes and pull requests
+- API specs on pushes and pull requests
+- Regression BDD scenarios on pushes
+
+When a Cypress run fails, screenshots are uploaded as workflow artifacts.
+
 ## QA Strategy
 
 This project follows:
@@ -110,6 +154,7 @@ This project follows:
 - BDD structure with Given, When and Then
 - Separation of concerns using Page Objects
 - Element locator files for reusable selectors
+- Test data factories for unique, reusable data
 - API setup with cy.request()
 - Clear and readable scenarios
 

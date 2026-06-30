@@ -4,6 +4,7 @@ Feature: Create Exercise
   I want to register new exercises with media links
   So that I can expand the library with visual guides for the users
 
+  @regression @ui @exercise
   Scenario: Register new exercise successfully
     Given the user is on the Home Screen
     When the user navigates to the Exercises page
@@ -15,6 +16,7 @@ Feature: Create Exercise
     Then the new exercise should be displayed in the exercises list
 
 
+  @regression @ui @exercise @negative
   Scenario: Exercise must not be created without required fields
     Given the user is on the Home Screen
     When the user navigates to the Exercises page
