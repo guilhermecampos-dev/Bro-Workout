@@ -20,7 +20,7 @@ This project was created to:
 ## Tech Stack
 
 - Cypress for UI and API testing
-- Cucumber for BDD scenarios
+- Cucumber for scenarios
 - JavaScript
 - Page Object Model (POM)
 
