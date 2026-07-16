@@ -51,13 +51,16 @@ The automated scenarios currently cover:
 ### API Testing
 
 - GET /users: validate users list and response structure
+- POST /users: create users and validate response data
+- PUT/PATCH /users/:id: not available in the current backend
+- DELETE /users/:id: not available in the current backend
 
 ## Project Structure
 
 ```text
 cypress/
+ │   api/                     # API specs
  ├── e2e/
- │    ├── API/                # API specs
  │    ├── elements/           # Element locators
  │    ├── features/           # Gherkin feature files
  │    └── page/               # Page Objects
@@ -122,6 +125,12 @@ npm run cy:run:regression
 
 ```bash
 npm run cy:run:api
+```
+
+### 9. Run element architecture checks
+
+```bash
+npm run test:elements
 ```
 
 ## Tags
