@@ -59,7 +59,6 @@ The automated scenarios currently cover:
 
 ```text
 cypress/
- │   api/                     # API specs
  ├── e2e/
  │    ├── elements/           # Element locators
  │    ├── features/           # Gherkin feature files

@@ -1,4 +1,4 @@
-import { userViewElements } from "../elements/userView_elements";
+import { UserViewElements } from "../elements/userView_elements";
 
 class UserViewPage {
       accessBroworkoutPage() {
@@ -6,7 +6,7 @@ class UserViewPage {
         }
     
         accessUserViewPage() {
-            userViewElements.usersLink().should('be.visible').click();
+            UserViewElements.usersLink().should('be.visible').click();
         }
 }
 export default UserViewPage

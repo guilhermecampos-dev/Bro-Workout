@@ -9,7 +9,8 @@
     "cy:run:smoke": "cypress run --env tags=\"@smoke and not @known-bug\" --spec \"cypress/e2e/features/*.feature\"",
     "cy:run:regression": "cypress run --env tags=\"@regression and not @known-bug\" --spec \"cypress/e2e/features/*.feature\"",
     "cy:run:known-bug": "cypress run --env tags=\"@known-bug\" --spec \"cypress/e2e/features/*.feature\"",
-    "cy:run:api": "cypress run --spec \"cypress/e2e/API/*.cy.js\"",
+    "cy:run:api": "cypress run --spec \"cypress/api/*.cy.js\"",
+    "test:elements": "node --test tests/element-pattern.test.js",
     "test": "npm run cy:run"
   },
   "keywords": [],

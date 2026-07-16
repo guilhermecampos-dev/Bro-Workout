@@ -1,4 +1,4 @@
-export const RegisterExercise = {
+export const RegisterExerciseElements = {
 
     addExercisesBtn: () => cy.contains('button', 'Adicionar Exercício'),
 

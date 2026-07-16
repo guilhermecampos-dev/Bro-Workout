@@ -11,7 +11,10 @@ module.exports = defineConfig({
   },
   e2e: {
     baseUrl: "https://bro-workout-frontend.vercel.app",
-    specPattern:"cypress/e2e/**/*.{cy.js,feature}",
+    specPattern: [
+      "cypress/e2e/**/*.feature",
+      "cypress/api/**/*.cy.js",
+    ],
     async setupNodeEvents(on, config){
       await addCucumberPreprocessorPlugin(on, config);
       on(

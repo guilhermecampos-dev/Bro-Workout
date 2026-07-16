@@ -5,11 +5,10 @@ import { createUniqueExercise } from "../factories/testData"
 
 const homePage = new HomePage
 const exercisesImagePage = new ExercisesImagePage
-let exerciseName
+let exercise
 
 Given('there is an exercise with a registered image', () => {
-  const exercise = createUniqueExercise('Exercicio Teste')
-  exerciseName = exercise.name
+  exercise = createUniqueExercise()
 
   cy.createExercise(exercise)
 })
@@ -19,7 +18,7 @@ When('clicking on the View Exercises button', () => {
 })
 
 Then('the image link must be displayed in the record', () => {
-  exercisesImagePage.validateExerciseIsListed(exerciseName)
-  exercisesImagePage.validateAvatarIsDisplayed(exerciseName)
-  exercisesImagePage.validateImageLinkDisplayed(exerciseName)
+  exercisesImagePage.validateExerciseIsListed(exercise.name)
+  exercisesImagePage.validateAvatarIsDisplayed(exercise.name)
+  exercisesImagePage.validateImageLinkDisplayed(exercise.name)
 })
