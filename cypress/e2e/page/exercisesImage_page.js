@@ -1,32 +1,36 @@
-import ExercisesImageElements from "../elements/exercisesImage_elements";
-
-const ei = new ExercisesImageElements()
+import { ExercisesElements } from "../elements/exercisesImage_elements";
 
 class ExercisesImagePage {
 
     validateExerciseIsListed(name) {
-        ei.exerciseItem(name)
+        ExercisesElements.exerciseItem(name)
             .should('exist')
             .and('be.visible')
     }
 
     validateAvatarIsDisplayed(name) {
-        ei.avatar(name)
+        ExercisesElements.avatar(name)
             .should('exist')
             .and('be.visible')
     }
 
     validateAvatarImageDisplayed(name) {
-        ei.avatarImage(name)
+        ExercisesElements.avatarImage(name)
             .should('exist')
             .and('be.visible')
     }
 
     validateDefaultIconIsNotDisplayed(name) {
-        ei.avatarIcon(name)
+        ExercisesElements.avatarIcon(name)
             .should('not.exist')
     }
 
+    validateImageLinkDisplayed(name) {
+        ExercisesElements.viewImageLink(name)
+            .should('exist')
+            .and('be.visible')
+            .and('have.attr', 'target', '_blank')
+    }
 
 }
 

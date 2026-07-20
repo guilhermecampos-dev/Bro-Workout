@@ -1,37 +1,24 @@
-class ExercisesImageElements {
+const escapeRegExp = (text) => text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
 
-  exerciseItem(name) {
-    return cy.contains('span', name).closest('li.MuiListItem-root')
-  }
+export const ExercisesElements = {
+  exerciseItem: (name) => cy.contains('span', new RegExp(`^${escapeRegExp(name)}$`))
+    .closest('li.MuiListItem-root'),
 
-  avatarContainer(name) {
-    return this.exerciseItem(name)
-      .find('.MuiListItemAvatar-root')
-  }
+  avatarContainer: (name) => ExercisesElements.exerciseItem(name)
+    .find('.MuiListItemAvatar-root'),
 
-  avatar(name) {
-    return this.avatarContainer(name)
-      .find('.MuiAvatar-root')
-  }
+  avatar: (name) => ExercisesElements.avatarContainer(name)
+    .find('.MuiAvatar-root'),
 
-  avatarImage(name) {
-    return this.avatar(name)
-      .find('img')
-  }
+  avatarImage: (name) => ExercisesElements.avatar(name)
+    .find('img'),
 
-  avatarIcon(name) {
-    return this.avatar(name)
-      .find('svg')
-  }
+  avatarIcon: (name) => ExercisesElements.avatar(name)
+    .find('svg'),
 
-  viewImageLink(name) {
-    return this.exerciseItem(name)
-      .contains('a', 'VER IMAGEM')
-  }
+  viewImageLink: (name) => ExercisesElements.exerciseItem(name)
+    .contains('a', 'VER IMAGEM'),
 
-  watchVideoLink(name) {
-    return this.exerciseItem(name)
-      .contains('a', 'ASSISTIR VÍDEO')
-  }
+  watchVideoLink: (name) => ExercisesElements.exerciseItem(name)
+    .contains('a', 'ASSISTIR VÍDEO')
 }
-export default ExercisesImageElements

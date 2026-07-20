@@ -1,3 +1,5 @@
 export const HomeElements = {
-    btnExercises: 'a[href="/exercises"]'
+    exercisesLink: () => cy.get('a[href="/exercises"]')
+        .filter(':visible')
+        .eq(0)
 }

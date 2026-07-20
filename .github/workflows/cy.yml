@@ -9,7 +9,8 @@ on:
       - '**'
 
 jobs:
-  cypress-run:
+  smoke:
+    name: Smoke BDD
     runs-on: ubuntu-latest
 
     steps:
@@ -19,10 +20,65 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 22
 
       - name: Install dependencies
         run: npm install
 
-      - name: Run Cypress tests
-        run: npx cypress run
+      - name: Run smoke tests
+        run: npm run cy:run:smoke
+
+      - name: Upload Cypress screenshots
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cypress-smoke-screenshots
+          path: cypress/screenshots
+          if-no-files-found: ignore
+
+  api:
+    name: API Specs
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run API tests
+        run: npm run cy:run:api
+
+  regression:
+    name: Regression BDD
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push'
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run regression tests
+        run: npm run cy:run:regression
+
+      - name: Upload Cypress screenshots
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cypress-regression-screenshots
+          path: cypress/screenshots
+          if-no-files-found: ignore

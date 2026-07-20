@@ -4,9 +4,17 @@ const {addCucumberPreprocessorPlugin} = require("@badeball/cypress-cucumber-prep
 const {createEsbuildPlugin} = require("@badeball/cypress-cucumber-preprocessor/esbuild");
 
 module.exports = defineConfig({
+  env: {
+    apiUrl: "https://broworkout.back.brothertec.com.br",
+    activeWorkoutExerciseId: "6882f02ee87e15cb925ed6a4",
+    activeWorkoutExerciseName: "Voador",
+  },
   e2e: {
     baseUrl: "https://bro-workout-frontend.vercel.app",
-    specPattern:"cypress/e2e/**/*.{cy.js,feature}",
+    specPattern: [
+      "cypress/e2e/**/*.feature",
+      "cypress/api/**/*.cy.js",
+    ],
     async setupNodeEvents(on, config){
       await addCucumberPreprocessorPlugin(on, config);
       on(

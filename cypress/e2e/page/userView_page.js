@@ -1,4 +1,4 @@
-import { userViewElements } from "../elements/userview_elements";
+import { UserViewElements } from "../elements/userView_elements";
 
 class UserViewPage {
       accessBroworkoutPage() {
@@ -6,7 +6,7 @@ class UserViewPage {
         }
     
         accessUserViewPage() {
-            cy.get(userViewElements.btnUserViews).first().click();
+            UserViewElements.usersLink().should('be.visible').click();
         }
 }
 export default UserViewPage

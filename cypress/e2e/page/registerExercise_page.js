@@ -1,29 +1,29 @@
-import { RegisterExercise } from "../elements/registerExercise_elements";
+import { RegisterExerciseElements } from "../elements/registerExercise_elements";
 
 class RegisterExercisePage {
 
     clickAddExercise() {
-        RegisterExercise.addExercisesBtn().click();
+        RegisterExerciseElements.addExercisesBtn().click();
     }
 
     fillExerciseName(name) {
-        RegisterExercise.inputExerciseName().type(name);
+        RegisterExerciseElements.inputExerciseName().type(name);
     }
 
     fillExercisesVideoUrl(urlVideo) {
-        RegisterExercise.inputUrlVideo().type(urlVideo);
+        RegisterExerciseElements.inputUrlVideo().type(urlVideo);
     }
 
     fillExercisesImageUrl(urlImage) {
-        RegisterExercise.inputUrlImage().type(urlImage);
+        RegisterExerciseElements.inputUrlImage().type(urlImage);
     }
 
     clickCreateExercise() {
-        RegisterExercise.createExercisesBtn().click();
+        RegisterExerciseElements.createExercisesBtn().click();
     }
 
     validateExercisesCreated(name) {
-        cy.contains(name).should('be.visible');
+        cy.contains('span', name).should('be.visible');
     }
 
     validateErrorMessage(message) {

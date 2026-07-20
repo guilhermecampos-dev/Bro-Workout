@@ -9,6 +9,6 @@ When('the user is on the exercise list page', () => {
     homePage.accessExercisesPage();
 });
 
-Then('a "Watch video" button must exist for each exercise in the list', () => {
+Then('the rendered "Watch video" buttons must be valid', () => {
     exercisesPage.validateWatchVideoButtons();
 });

@@ -3,7 +3,15 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "cy:open": "cypress open",
+    "cy:run": "cypress run",
+    "cy:run:bdd": "cypress run --spec \"cypress/e2e/features/*.feature\"",
+    "cy:run:smoke": "cypress run --env tags=\"@smoke and not @known-bug\" --spec \"cypress/e2e/features/*.feature\"",
+    "cy:run:regression": "cypress run --env tags=\"@regression and not @known-bug\" --spec \"cypress/e2e/features/*.feature\"",
+    "cy:run:known-bug": "cypress run --env tags=\"@known-bug\" --spec \"cypress/e2e/features/*.feature\"",
+    "cy:run:api": "cypress run --spec \"cypress/api/*.cy.js\"",
+    "test:elements": "node --test tests/element-pattern.test.js",
+    "test": "npm run cy:run"
   },
   "keywords": [],
   "author": "",

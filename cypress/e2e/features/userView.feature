@@ -4,6 +4,7 @@ Feature: User Management
   I want to access the users list
   So that I can view all registered users' information
 
+  @smoke @regression @ui @user
   Scenario: Display registered user cards
     Given the user is on the Home Screen
     When they click on the "Users" button

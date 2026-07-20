@@ -1,28 +1,45 @@
 export const UserCreatModalElements = {
 
-    addUserWorkoutbtn: () => cy.contains('button', 'Adicionar Treino'),
+    addUserWorkoutButtons: () => cy.get('button').then(($buttons) => (
+        Cypress.$($buttons).filter((index, button) => (
+            button.innerText.trim().toLowerCase() === 'adicionar treino'
+        ))
+    )),
 
-    inputWorkoutName: () => cy.contains('label', 'Nome do Treino')
-        .parent().find('input'),
+    userCardByEmail: (email) => cy.contains('.MuiCard-root', email, { timeout: 15000 }),
 
-    exerciseSelect: () => cy.contains('label', 'Exercício')
-        .parent()
+    addUserWorkoutbtn: (email) => UserCreatModalElements.userCardByEmail(email)
+        .contains('button', /adicionar treino/i),
+
+    workoutDialog: () => cy.get('[role="dialog"]').should('be.visible'),
+
+    inputWorkoutName: () => UserCreatModalElements.workoutDialog()
+        .contains('label', 'Nome do Treino')
+        .closest('.MuiFormControl-root')
+        .find('input'),
+
+    exerciseSelect: () => UserCreatModalElements.workoutDialog()
+        .contains('label', 'Exercício')
+        .closest('.MuiFormControl-root')
         .find('div[role="combobox"]'),
 
-    inputNumberRepetition: () => cy.contains('label', 'Repetições')
-        .parent().find('input'),
+    inputNumberRepetition: () => UserCreatModalElements.workoutDialog()
+        .contains('label', 'Repetições')
+        .closest('.MuiFormControl-root')
+        .find('input'),
 
-    inputSeriesRepetition: () => cy.contains('label', 'Séries')
-        .parent().find('input'),
+    inputSeriesRepetition: () => UserCreatModalElements.workoutDialog()
+        .contains('label', 'Séries')
+        .closest('.MuiFormControl-root')
+        .find('input'),
 
-    inputWeight: () => cy.contains('label', 'Peso (kg)')
-        .parent().find('input'),
+    inputWeight: () => UserCreatModalElements.workoutDialog()
+        .contains('label', 'Peso (kg)')
+        .closest('.MuiFormControl-root')
+        .find('input'),
 
-    addWorkoutbtn: () => cy.get('[role="dialog"]')
-        .should('exist')
-        .within(() => {
-            cy.contains('button', 'Adicionar Treino').click()
-        })
+    addWorkoutbtn: () => UserCreatModalElements.workoutDialog()
+        .contains('button', 'Adicionar Treino')
 
 
 }

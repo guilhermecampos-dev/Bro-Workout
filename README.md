@@ -1,139 +1,182 @@
-# 🧪 Bro Workout – QA Automation Project 
+# Bro Workout QA Automation Project
 
-This repository contains automated end-to-end tests developed for the Bro Workout application.
+This repository contains automated end-to-end and API tests developed for the Bro Workout application.
 
-The goal of this project is to validate core user flows, ensure system reliability, and demonstrate best practices in test automation using modern QA tools.
+The goal of this project is to validate core user flows, support functional stability, and demonstrate QA automation practices using Cypress, Cucumber and JavaScript.
 
-## 👉 Application under test:
+## Application Under Test
+
 https://bro-workout-frontend.vercel.app/
 
-# 🎯 Project Objective
+## Project Objective
 
-### This project was created to:
+This project was created to:
 
 - Validate critical user journeys
-
-- Ensure functional stability
-
 - Apply Behavior-Driven Development (BDD)
-
 - Practice scalable test architecture
-
 - Demonstrate real-world QA automation skills
 
-# 🧰 Tech Stack
+## Tech Stack
 
-## Test Automation Framework
-
-- Cypress (UI + API Testing)
-
-- Cucumber (BDD)
-
+- Cypress for UI and API testing
+- Cucumber for scenarios
 - JavaScript
-
-## Architecture Pattern
-
 - Page Object Model (POM)
 
-## CI/CD
+## Test Coverage
 
-- GitHub Actions
+The automated scenarios currently cover:
 
-# 📋 Test Coverage
+### User Management
 
-## The automated scenarios cover:
+- Navigate to the users page
+- Validate registered user cards page access
 
-### 🔐 Authentication
+### Exercise Management
 
-- Valid login
-
-- Invalid login
-
-- Logout
-
-### 🏋️ Exercise Management
-
-- Add new exercise
-
+- Add a new exercise
 - Validate required fields
-
 - Display registered exercises
+- Validate video button rendering
+- Validate image rendering when an image URL exists
 
-- Validate default icon when no image is provided
+### Active Workout
 
-- Validate image rendering when image URL exists
+- Create a user through the API
+- Assign a workout through the API
+- Select the API-created user on the Active Workout page
+- Validate workout exercise, repetitions, executions and weight
 
-## 🔌 API Testing
+### API Testing
 
-The project also includes automated API tests using Cypress.
+- GET /users: validate users list and response structure
+- POST /users: create users and validate response data
+- PUT/PATCH /users/:id: not available in the current backend
+- DELETE /users/:id: not available in the current backend
 
-### Covered endpoints:
+## Project Structure
 
-- GET /users → validate users list and response structure
-- POST /users → create new user and validate response data
-
-### Validations performed:
-
-- Status code validation (200, 201)
-- Response structure validation
-
-### 🏗️ Project Structure
-```cypress/
+```text
+cypress/
+ ├── api/                     # API specs
  ├── e2e/
- │    ├── api/                # API tests
- │    │    └── users.cy.js
- │    ├── features/           # Gherkin .feature files
- │    ├── step_definitions/   # BDD steps
- │    ├── pages/              # Page Objects
- │
+ │    ├── elements/           # Element locators
+ │    ├── features/           # Gherkin feature files
+ │    └── page/               # Page Objects
  ├── support/
- │    └── commands.js
- │
+ │    ├── factories/          # Test data builders
+ │    ├── step_definitions/   # Cucumber step definitions
+ │    ├── commands.js
+ │    └── e2e.js
+.github/
+ └── workflows/               # GitHub Actions pipelines
 cypress.config.js
 package.json
 README.md
 ```
 
-# 🚀 How to Run the Tests
+## How to Run the Tests
 
-## 1️⃣ Clone the repository
+### 1. Clone the repository
+
+```bash
 git clone https://github.com/guilhermecampos-dev/Bro-Workout.git
 cd Bro-Workout
+```
 
-## 2️⃣ Install dependencies
+### 2. Install dependencies
+
+```bash
 npm install
+```
 
-## 3️⃣ Open Cypress UI
-npx cypress open
+### 3. Open Cypress UI
 
-## 4️⃣ Run in headless mode
-npx cypress run
+```bash
+npm run cy:open
+```
 
-# 🧠 QA Strategy
+### 4. Run all tests in headless mode
 
-## This project follows:
+```bash
+npm test
+```
 
-- BDD structure (Given / When / Then)
+### 5. Run only BDD feature files
 
+```bash
+npm run cy:run:bdd
+```
+
+### 6. Run smoke scenarios
+
+```bash
+npm run cy:run:smoke
+```
+
+### 7. Run regression scenarios
+
+```bash
+npm run cy:run:regression
+```
+
+### 8. Run API specs
+
+```bash
+npm run cy:run:api
+```
+
+### 9. Run element architecture checks
+
+```bash
+npm run test:elements
+```
+
+## Tags
+
+Feature files use tags to organize execution:
+
+- `@smoke`: fast, high-value scenarios for quick feedback
+- `@regression`: broader coverage scenarios
+- `@ui`: user interface scenarios
+- `@api-setup`: UI scenarios that prepare data through the API
+- `@negative`: negative validation scenarios
+- `@known-bug`: documented known issues that should be excluded from normal runs
+
+The default smoke and regression scripts exclude `@known-bug` scenarios.
+
+## Continuous Integration
+
+GitHub Actions runs:
+
+- Smoke BDD scenarios on pushes and pull requests
+- API specs on pushes and pull requests
+- Regression BDD scenarios on pushes
+
+When a Cypress run fails, screenshots are uploaded as workflow artifacts.
+
+## QA Strategy
+
+This project follows:
+
+- BDD structure with Given, When and Then
 - Separation of concerns using Page Objects
-
-- Reusable commands
-
+- Element locator files for reusable selectors
+- Test data factories for unique, reusable data
+- API setup with cy.request()
 - Clear and readable scenarios
-
-- Stable selectors strategy
-
-- API testing with cy.request()
 
 The objective is not only to test, but to build maintainable automation.
 
-# 👨‍💻 Author
+## Author
 
-## Guilherme Campos
-### QA Automation Engineer 
+Guilherme Campos
 
-## GitHub:
+QA Automation Engineer
+
 https://github.com/guilhermecampos-dev
 
-## 📜 License
-MIT © 2026 Guilherme Campos
+## License
+
+MIT 2026 Guilherme Campos

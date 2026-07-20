@@ -1,15 +1,18 @@
-export const RegisterExercise = {
+export const RegisterExerciseElements = {
 
     addExercisesBtn: () => cy.contains('button', 'Adicionar Exercício'),
 
+    formControlByLabel: (label) => cy.contains('label', label)
+        .closest('.MuiFormControl-root'),
+
     inputExerciseName: () => cy.contains('label', 'Nome do Exercício')
-        .parent().find('input'),
+        .closest('.MuiFormControl-root').find('input'),
 
     inputUrlVideo: () => cy.contains('label', 'URL do Vídeo (opcional)')
-        .parent().find('input'),
+        .closest('.MuiFormControl-root').find('input'),
 
     inputUrlImage: () => cy.contains('label', 'URL da Imagem (opcional)')
-        .parent().find('input'),
+        .closest('.MuiFormControl-root').find('input'),
 
     createExercisesBtn: () => cy.contains('button', 'Criar'),
 

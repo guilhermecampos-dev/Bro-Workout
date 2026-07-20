@@ -1,3 +1,5 @@
 export const ExercisesElements = {
-    btnWatchVideo: 'a[href*="youtube.com"], a[href*="youtu.be"]'
+    exerciseItems: () => cy.get('li.MuiListItem-root'),
+
+    watchVideoLinks: () => cy.get('a[href*="youtube.com"], a[href*="youtu.be"]')
 }
